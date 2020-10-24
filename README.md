@@ -1,4 +1,4 @@
-# MonApplicationFinanciere-React
+# Mon Application Financiere - React
 
 ## Ressources utilisées pour le développement
 
@@ -12,6 +12,6 @@
 
 #
 
-![Structure Initiale](../master/img/StructureInitiale.png)
+![StructureInitiale](../master/img/StructureInitiale.png)
 
 ![Sketch](../master/img/Sketch.png)
