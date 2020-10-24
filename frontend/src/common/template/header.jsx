@@ -4,11 +4,11 @@ export default (props) => (
   <header className="main-header">
     <a href="/#/" className="logo">
       <span className="logo-mini">
-        <b>My</b>M
+        <b>M</b> $
       </span>
       <span className="logo-lg">
         <i className="fa fa-money"></i>
-        <b> My</b> Money
+        <b> Mon</b> Argent
       </span>
     </a>
     <nav className="navbar navbar-static-top">
