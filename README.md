@@ -12,6 +12,6 @@
 
 #
 
-![structureInitiale](../main/img/structureInitiale.png)
+![structureInitiale](./img/structureInitiale.png?raw=true)
 
-![sketch](../main/img/sketch.png)
+![sketch](./img/sketch.png)
