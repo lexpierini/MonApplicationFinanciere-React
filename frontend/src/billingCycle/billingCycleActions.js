@@ -4,7 +4,7 @@ import { reset as resetForm, initialize } from 'redux-form'
 import { showTabs, selectTab } from '../common/tab/tabActions'
 
 const BASE_URL = "http://localhost:3003/api";
-const INITIAL_VALUES = { credits: [{}], debts: [{}] }
+const INITIAL_VALUES = { credits: [{}], debts: [{}] };
 
 export function getList() {
     const request = axios.get(`${BASE_URL}/billingCycles`);
@@ -15,14 +15,23 @@ export function getList() {
 }
 
 export function create(values) {
+    return submit(values, 'post')
+}
+
+export function update(values) {
+    return submit(values, 'put')
+}
+
+function submit(values, method) {
     return dispatch => {
-        axios.post(`${BASE_URL}/billingCycles`, values)
+        const id = values._id ? values._id : '';
+        axios[method](`${BASE_URL}/billingCycles/${id}`, values)
             .then(resp => {
                 toastr.success('Succès", "Opération réussie.')
                 dispatch(init())
             })
             .catch(e => {
-                e.response.data.errors.forEach(error => toastr.error('Erreur', error))
+                e.response.data.errors.forEach(error => toastr.error('Erro', error))
             })
     }
 }
