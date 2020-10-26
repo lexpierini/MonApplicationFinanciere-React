@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Field } from "redux-form";
 import Grid from "../common/layout/grid";
+import Input from "../common/form/input";
 
 class CreditList extends Component {
   renderRows() {
@@ -9,10 +10,20 @@ class CreditList extends Component {
     return list.map((item, index) => (
       <tr key={index}>
         <td>
-          <Field name="credits[0].name" component={Input} />
+          <Field
+            name="credits[0].name"
+            component={Input}
+            placeholder="Entrez le nom"
+            readOnly={this.props.readOnly}
+          />
         </td>
         <td>
-          <Field name="credits[0].value" component={Input} />
+          <Field
+            name="credits[0].value"
+            component={Input}
+            placeholder="Entrez la valeur"
+            readOnly={this.props.readOnly}
+          />
         </td>
       </tr>
     ));
