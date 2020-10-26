@@ -5,10 +5,10 @@ import { Field, arrayInsert, arrayRemove } from "redux-form";
 import Grid from "../common/layout/grid";
 import Input from "../common/form/input";
 
-class CreditList extends Component {
+class ItemList extends Component {
   add(index, item = {}) {
     if (!this.props.readOnly) {
-      this.props.arrayInsert("billingCycleForm", "credits", index, item);
+      this.props.arrayInsert("billingCycleForm", this.props.field, index, item);
     }
   }
 
@@ -70,7 +70,7 @@ class CreditList extends Component {
     return (
       <Grid cols={this.props.cols}>
         <fieldset>
-          <legend>Crédits</legend>
+          <legend>{this.props.legend}</legend>
           <table className="table">
             <thead>
               <tr>
@@ -92,4 +92,4 @@ class CreditList extends Component {
 
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators({ arrayInsert, arrayRemove }, dispatch);
-export default connect(null, mapDispatchToProps)(CreditList);
+export default connect(null, mapDispatchToProps)(ItemList);
