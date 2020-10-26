@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 
 import promise from "redux-promise";
 
-import App from "./main/app";
+import Routes from "./main/routes";
 import reducers from "./main/reducers";
 
 const devTools =
@@ -14,7 +14,7 @@ const devTools =
 const store = applyMiddleware(promise)(createStore)(reducers, devTools);
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Routes />
   </Provider>,
   document.getElementById("app")
 );
