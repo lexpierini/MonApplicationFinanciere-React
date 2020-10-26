@@ -11,7 +11,7 @@ class CreditList extends Component {
       <tr key={index}>
         <td>
           <Field
-            name="credits[0].name"
+            name={`${this.props.field}[${index}].name`}
             component={Input}
             placeholder="Entrez le nom"
             readOnly={this.props.readOnly}
@@ -19,7 +19,7 @@ class CreditList extends Component {
         </td>
         <td>
           <Field
-            name="credits[0].value"
+            name={`${this.props.field}[${index}].value`}
             component={Input}
             placeholder="Entrez la valeur"
             readOnly={this.props.readOnly}
