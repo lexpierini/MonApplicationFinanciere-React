@@ -47,20 +47,19 @@ const signup = (req, res, next) => {
     const confirmPassword = req.body.confirm_password || ''
 
     if (!email.match(emailRegex)) {
-        return res.status(400).send({ errors: ["Le courriel informé n'est pas valable"] })
+        return res.status(400).send({ errors: ["Le courriel informé n'est pas valide"] })
     }
 
     if (!password.match(passwordRegex)) {
         return res.status(400).send({
             errors: [
-                "Le mot de passe doit comporter : une lettre majuscule, une lettre minuscule, un chiffre, un caractère spécial (@#$%) et une taille comprise entre 6 et 20."
+                "Le mot de passe doit comporter : une lettre majuscule, une lettre minuscule, un chiffre, un caractère spécial (@#$ %) et une taille comprise entre 6 et 20."
             ]
         })
     }
 
     const salt = bcrypt.genSaltSync()
     const passwordHash = bcrypt.hashSync(password, salt)
-
     if (!bcrypt.compareSync(confirmPassword, passwordHash)) {
         return res.status(400).send({ errors: ['Les mots de passe ne sont pas les mêmes.'] })
     }
@@ -69,7 +68,7 @@ const signup = (req, res, next) => {
         if (err) {
             return sendErrorsFromDB(res, err)
         } else if (user) {
-            return res.status(400).send({ errors: ['Utilisateur déjà enregistré.'] })
+            return res.status(400).send({ errors: ['Utilisateur déjà inscrit.'] })
         } else {
             const newUser = new User({ name, email, password: passwordHash })
             newUser.save(err => {

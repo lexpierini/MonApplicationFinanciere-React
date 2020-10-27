@@ -8,18 +8,22 @@ class Navbar extends Component {
     super(props);
     this.state = { open: false };
   }
+
   changeOpen() {
     this.setState({ open: !this.state.open });
   }
+
   render() {
     const { name, email } = this.props.user;
-
     return (
       <div className="navbar-custom-menu">
         <ul className="nav navbar-nav">
           <li
             onMouseLeave={() => this.changeOpen()}
-            className={`dropdown user user-menu ${this.state.open ? "open" : ""}`}>
+            className={`dropdown user user-menu ${
+              this.state.open ? "open" : ""
+            }`}
+          >
             <a
               href="javascript:;"
               onClick={() => this.changeOpen()}
@@ -53,7 +57,7 @@ class Navbar extends Component {
                     onClick={this.props.logout}
                     className="btn btn-default btn-flat"
                   >
-                    Quitter
+                    Sair
                   </a>
                 </div>
               </li>
@@ -64,6 +68,7 @@ class Navbar extends Component {
     );
   }
 }
+
 const mapStateToProps = (state) => ({ user: state.auth.user });
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators({ logout }, dispatch);

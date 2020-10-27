@@ -7,7 +7,6 @@ import { bindActionCreators } from "redux";
 import { login, signup } from "./authActions";
 import Row from "../common/layout/row";
 import Grid from "../common/layout/grid";
-import If from "../common/operator/if";
 import Messages from "../common/msg/messages";
 import Input from "../common/form/inputAuth";
 
@@ -29,7 +28,6 @@ class Auth extends Component {
   render() {
     const { loginMode } = this.state;
     const { handleSubmit } = this.props;
-
     return (
       <div className="login-box">
         <div className="login-logo">
@@ -37,7 +35,7 @@ class Auth extends Component {
         </div>
         <div className="login-box-body">
           <p className="login-box-msg">Bienvenue!</p>
-          <form onSubmit={handleSubmit((values) => this.onSubmit(values))}>
+          <form onSubmit={handleSubmit((v) => this.onSubmit(v))}>
             <Field
               component={Input}
               type="input"
@@ -74,7 +72,7 @@ class Auth extends Component {
                   type="submit"
                   className="btn btn-primary btn-block btn-flat"
                 >
-                  {loginMode ? "Entrer" : "S'inscrire"}
+                  {loginMode ? "Entrez" : "S'inscrire"}
                 </button>
               </Grid>
             </Row>
@@ -82,8 +80,8 @@ class Auth extends Component {
           <br />
           <a onClick={() => this.changeMode()}>
             {loginMode
-              ? "Nouvel utilisateur ? Inscrivez-vous ici!"
-              : "Êtes-vous déjà inscrit ? Connectez-vous ici!"}
+              ? "Nouvel utilisateur? Inscrivez-vous ici !"
+              : "Êtes-vous déjà inscrit? Connectez-vous ici !"}
           </a>
         </div>
         <Messages />

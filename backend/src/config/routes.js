@@ -3,7 +3,9 @@ const auth = require('./auth')
 
 module.exports = function (server) {
 
-    //  Routes protégées par Token JWT
+    /*
+     * Parcours protégés par jetons JWT
+     */
     const protectedApi = express.Router()
     server.use('/api', protectedApi)
 
@@ -12,7 +14,9 @@ module.exports = function (server) {
     const BillingCycle = require('../api/billingCycle/billingCycleService')
     BillingCycle.register(protectedApi, '/billingCycles')
 
-    // Routes ouvertes
+    /*
+     * Parcours ouverts
+     */
     const openApi = express.Router()
     server.use('/oapi', openApi)
 
