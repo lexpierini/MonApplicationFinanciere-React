@@ -11,11 +11,13 @@
 
 #
 
-**npm run dev** = dans le dossier backend pour exécuter le serveur backend en mode développement;
-**npm run production** = dans le dossier backend pour exécuter le serveur backend en mode production;
-**./node_modules/.bin/pm2 monit** = dans le dossier backend pour activer la surveillance du serveur backend;
-**mongod** = dans le dossier backend pour exécuter le serveur MongoDB
-**npm start** = dans le dossier frontend pour exécuter le SPA. (http://localhost:8080)
+## Pour exécuter l'application
+
+1. **npm run dev** = dans le dossier backend pour exécuter le serveur backend en mode développement;
+2. **npm run production** = dans le dossier backend pour exécuter le serveur backend en mode production;
+3. **./node_modules/.bin/pm2 monit** = dans le dossier backend pour activer la surveillance du serveur backend;
+4. **mongod** = dans le dossier backend pour exécuter le serveur MongoDB
+5. **npm start** = dans le dossier frontend pour exécuter le SPA. (http://localhost:8080)
 
 #
 
